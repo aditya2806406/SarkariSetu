@@ -1,0 +1,30 @@
+{
+  "name": "sarkarisetu-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node data/seed.js",
+    "embed": "node jobs/embedSchemes.js",
+    "eval": "node jobs/runEvaluation.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "@clerk/clerk-sdk-node": "^5.0.51",
+    "svix": "^1.24.0",
+    "@google/genai": "^1.0.0",
+    "@huggingface/transformers": "^3.2.0",
+    "express-rate-limit": "^7.4.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.1"
+  }
+}

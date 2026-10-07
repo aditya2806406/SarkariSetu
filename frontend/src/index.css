@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-base text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-marigold/30 text-white;
+  }
+
+  /* Respect reduced-motion preferences everywhere */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Visible keyboard focus ring everywhere */
+  :focus-visible {
+    outline: 2px solid #f0a83c;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Glass morphism surface used by <Card /> and elsewhere */
+  .glass {
+    background: linear-gradient(
+      180deg,
+      rgba(237, 239, 245, 0.06) 0%,
+      rgba(237, 239, 245, 0.02) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(237, 239, 245, 0.08);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar — subtle, on-brand */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050a18;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2647;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #263460;
+}
