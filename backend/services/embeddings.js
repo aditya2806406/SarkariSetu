@@ -48,7 +48,9 @@ function getExtractor() {
     // code that never calls generateEmbedding (like most unit tests)
     // never pays the cost of loading this dependency at all.
     extractorPromise = import("@huggingface/transformers").then(({ pipeline }) =>
-      pipeline("feature-extraction", MODEL_ID)
+      pipeline("feature-extraction", MODEL_ID, {
+        dtype: "q8",
+      })
     );
   }
   return extractorPromise;
